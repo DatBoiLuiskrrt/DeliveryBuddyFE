@@ -1,2 +1,7 @@
 <h1>Hello World !</h1>
-<h2 *ngFor="let state of states">{{ state.stateCode }}</h2>
+<!-- <h2 *ngFor="let state of states">{{ state.stateCode }}</h2> -->
+<select>
+  <option *ngFor="let state of states" [value]="state.stateCode">
+    {{ state.stateName }}
+  </option>
+</select>
