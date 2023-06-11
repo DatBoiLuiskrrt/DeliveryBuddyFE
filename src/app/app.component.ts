@@ -20,14 +20,14 @@ export class AppComponent implements OnInit {
   getAllStateLocations() {
     this.locationsService.getAllLocations().subscribe((response) => {
       this.states = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 
   getAllCityLocations(stateID: number) {
     this.locationsService.getAllCities(stateID).subscribe((response) => {
       this.cities = response;
-      console.log(response);
+      // console.log(response);
     });
   }
 }
