@@ -9,8 +9,19 @@
     {{ state.stateName }}
   </option>
 </select>
+
 <select>
-  <option *ngFor="let citi of cities" [value]="citi.id">
+  <option
+    *ngFor="let citi of cities"
+    [value]="citi.id"
+    (click)="getAllLocationsByCityID(citi.id)"
+  >
     {{ citi.cityName }}
+  </option>
+</select>
+
+<select>
+  <option *ngFor="let location of locations" [value]="location.id">
+    {{ location.houseNumber + " " + location.streetName }}
   </option>
 </select>

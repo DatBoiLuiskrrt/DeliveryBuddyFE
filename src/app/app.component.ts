@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationsService } from './service/locations.service';
-import { State, City } from './models/locations.model';
+import { State, City, Locations } from './models/locations.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,10 +10,12 @@ export class AppComponent implements OnInit {
   title = 'DeliveryBuddyFE';
   states: State[] = [];
   cities: City[] = [];
+  locations: Locations[] = [];
 
   constructor(private locationsService: LocationsService) {}
   ngOnInit(): void {
     this.getAllStateLocations();
+    this.getAllLocationsByCityID(1);
     this.getAllCityLocations(1);
   }
 
@@ -24,10 +26,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getAllCityLocations(stateID: number) {
-    this.locationsService.getAllCities(stateID).subscribe((response) => {
+  getAllCityLocations(cityID: number) {
+    this.locationsService.getAllCities(cityID).subscribe((response) => {
       this.cities = response;
       // console.log(response);
     });
+  }
+  getAllLocationsByCityID(cityID: number) {
+    this.locationsService
+      .getAllLocationsByCityID(cityID)
+      .subscribe((response) => {
+        this.locations = response;
+        console.log(response);
+      });
   }
 }

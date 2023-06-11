@@ -9,3 +9,15 @@ export interface City {
   cityName: string;
   stateId: number;
 }
+
+export interface Locations {
+  id: number;
+  streetName: string;
+  houseNumber: number;
+  aptNumber: number;
+  active: string;
+  cityId: number;
+  countryId: number;
+  userId: number;
+  stateId: number;
+}
