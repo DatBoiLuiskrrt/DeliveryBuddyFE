@@ -1,6 +1,11 @@
 export interface State {
-  id: string;
+  id: number;
   stateName: string;
   stateCode: string;
   countryId: number;
+}
+export interface City {
+  id: number;
+  cityName: string;
+  stateId: number;
 }
