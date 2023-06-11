@@ -5,3 +5,8 @@
     {{ state.stateName }}
   </option>
 </select>
+<select>
+  <option *ngFor="let state of states" [value]="state.stateCode">
+    {{ state.stateName }}
+  </option>
+</select>
