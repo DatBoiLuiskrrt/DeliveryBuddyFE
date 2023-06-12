@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationsService } from './service/locations.service';
-import { State, City, Locations } from './models/locations.model';
+import { State, City, Locations, Comments } from './models/locations.model';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   states: State[] = [];
   cities: City[] = [];
   locations: Locations[] = [];
+  comments: Comments[] = [];
 
   constructor(private locationsService: LocationsService) {}
   ngOnInit(): void {
@@ -37,6 +38,15 @@ export class AppComponent implements OnInit {
       .getAllLocationsByCityID(cityID)
       .subscribe((response) => {
         this.locations = response;
+        // console.log(response);
+      });
+  }
+
+  getAllCommentsByLocationID(locationID: number) {
+    this.locationsService
+      .getAllCommentsByLocationID(locationID)
+      .subscribe((response) => {
+        this.comments = response;
         console.log(response);
       });
   }

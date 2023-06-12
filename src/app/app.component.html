@@ -21,7 +21,15 @@
 </select>
 
 <select>
-  <option *ngFor="let location of locations" [value]="location.id">
+  <option
+    *ngFor="let location of locations"
+    [value]="location.id"
+    (click)="getAllCommentsByLocationID(location.id)"
+  >
     {{ location.houseNumber + " " + location.streetName }}
   </option>
 </select>
+
+<div *ngFor="let comment of comments">
+  <p>{{ comment.commentDescription }}</p>
+</div>

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { State, Locations, City } from '../models/locations.model';
+import { State, Locations, City, Comments } from '../models/locations.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -24,6 +24,16 @@ export class LocationsService {
     let params = new HttpParams().set('Id', citiID);
     return this.http.get<Locations[]>(
       this.baseUrl + '/Locations/GetLocationsByCityId/',
+      {
+        params: params,
+      }
+    );
+  }
+
+  getAllCommentsByLocationID(locationID: any): Observable<Comments[]> {
+    let params = new HttpParams().set('Id', locationID);
+    return this.http.get<Comments[]>(
+      this.baseUrl + '/Comments/GetCommentsByLocationId',
       {
         params: params,
       }

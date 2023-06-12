@@ -21,3 +21,10 @@ export interface Locations {
   userId: number;
   stateId: number;
 }
+
+export interface Comments {
+  id: number;
+  commentDescription: string;
+  userId: number;
+  locationId: number;
+}
