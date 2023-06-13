@@ -30,8 +30,11 @@ export class LocationsService {
     );
   }
 
-  getAllCommentsByLocationID(locationID: any): Observable<Comments[]> {
-    let params = new HttpParams().set('Id', locationID);
+  getAllCommentsByLocationID(
+    locationID: number,
+    cityID: number
+  ): Observable<Comments[]> {
+    let params = new HttpParams().set('Id', locationID).set('stateId', cityID);
     return this.http.get<Comments[]>(
       this.baseUrl + '/Comments/GetCommentsByLocationId',
       {

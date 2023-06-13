@@ -24,7 +24,7 @@
   <option
     *ngFor="let location of locations"
     [value]="location.id"
-    (click)="getAllCommentsByLocationID(location.id)"
+    (click)="getAllCommentsByLocationID(location.id, location.cityId)"
   >
     {{ location.houseNumber + " " + location.streetName }}
   </option>

@@ -42,9 +42,9 @@ export class AppComponent implements OnInit {
       });
   }
 
-  getAllCommentsByLocationID(locationID: number) {
+  getAllCommentsByLocationID(locationID: number, cityID: number) {
     this.locationsService
-      .getAllCommentsByLocationID(locationID)
+      .getAllCommentsByLocationID(locationID, cityID)
       .subscribe((response) => {
         this.comments = response;
         console.log(response);

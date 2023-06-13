@@ -25,6 +25,6 @@ export interface Locations {
 export interface Comments {
   id: number;
   commentDescription: string;
-  userId: number;
-  locationId: number;
+  stateId: number;
+  cityId: number;
 }
