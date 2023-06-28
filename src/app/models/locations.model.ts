@@ -27,4 +27,6 @@ export interface Comments {
   commentDescription: string;
   stateId: number;
   cityId: number;
+  Active: string;
+  UserId: number;
 }
